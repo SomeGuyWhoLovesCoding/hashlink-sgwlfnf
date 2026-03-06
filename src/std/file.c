@@ -239,9 +239,9 @@ MAKE_STDIO(stdin);
 MAKE_STDIO(stdout);
 MAKE_STDIO(stderr);
 
-HL_PRIM vbyte *hl_file_contents( vbyte *name, int *pos, int *size ) {
+HL_PRIM vbyte *hl_file_contents( vbyte *name, int *size ) {
 	int len;
-	int p = pos;
+	int p = 0;
 	vbyte *content;
 #	ifdef HL_UFOPEN
 	FILE *f = fopen((uchar*)name,USTR("rb"));
@@ -293,4 +293,5 @@ DEFINE_PRIM(_FILE, file_stderr, _NO_ARG);
 DEFINE_PRIM(_BYTES, file_contents, _BYTES _REF(_I32));
 DEFINE_PRIM(_BOOL, file_is_locked, _BYTES);
 DEFINE_PRIM(_I32, file_error_code, _NO_ARG);
+
 
